@@ -19,14 +19,14 @@ function ActiveTradedUSTickers() {
 	// );
 
 	// SAMPLE DATA WAS RETRIEVED FROM https://www.alphavantage.co/documentation/#intelligence
-	const url = `https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=${apiKey}`;
+	const url = `https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=8RXQ0ZB701991G0P`;
 	// // Create the URL with the token parameter
 	// Replace with your actual API key
 	//getStockNews data
 	const getTickersData = async () => {
 		if (!isMaximumCall) {
 			try {
-				const newTickers = await getData(tickersSampleData);
+				const newTickers = await getData(url);
 
 				//console.log('newTickers ', newTickers);
 				setLastUpdateDate(newTickers.last_updated);

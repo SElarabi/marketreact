@@ -12,12 +12,12 @@ function NewsFeed() {
 
 	// API end point
 	const feedNewsApi =
-		'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=AAPL&apikey=demo';
+		'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=AAPL&apikey=8RXQ0ZB701991G0P';
 
 	//getStockNews data
 	const getFeednewsData = async () => {
-		const newFeedsData = await getData(newsFeedDataTestURL);
-		// const newFeedsData = await getData(feedNewsApi);
+		// const newFeedsData = await getData(newsFeedDataTestURL);
+		const newFeedsData = await getData(feedNewsApi);
 		setData(newFeedsData);
 
 		setFeeds(newFeedsData.feed);
