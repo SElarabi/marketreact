@@ -1,17 +1,33 @@
+/** @format */
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import FindTicker from './components/FindTicker';
+import MarketNews from './components/MarketNews';
+import NewsFeed from './components/NewsFeed';
+import ActiveTradedUSTickers from './components/ActiveTradedUSTickers';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+// Market news updates
+const rootScrollingText = ReactDOM.createRoot(
+	document.getElementById('scrollingNewsContainer')
 );
+rootScrollingText.render(<MarketNews />);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// // Stock and description
+// const rootFindTicker = ReactDOM.createRoot(
+// 	document.getElementById('findTicker')
+// );
+// rootFindTicker.render(<FindTicker />);
+
+// MostActively traded US ticker
+const rootActiveTickers = ReactDOM.createRoot(
+	document.getElementById('ActiveTickersContainer')
+);
+rootActiveTickers.render(<ActiveTradedUSTickers />);
+
+//News Feed updates
+const rootNewsFeedStock = ReactDOM.createRoot(
+	document.getElementById('NewsFeedSectionContainer')
+);
+rootNewsFeedStock.render(<NewsFeed />);

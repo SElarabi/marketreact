@@ -1,13 +1,251 @@
+/** @format */
+/* RESET  */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	background: white;
+}
+#pageTitle {
+	background-image: url('./images/MITBannerHomepage.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	color: rgb(250, 255, 254);
+	text-align: center;
+	display: sticky;
+}
+#demo {
+	width: 100%;
+	height: 500;
+	background-color: rgb(219, 242, 245);
+
+	border: solid rgb(17, 17, 18);
+	margin: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.demoBox {
+	display: inline-flex;
+	background-color: pink;
+	border: 1px solid black;
+	border-radius: 25%;
+	padding: 2em;
+}
+.pic-boita {
+	width: 050px;
+	height: 050px;
+	display: flex; /* Enable flexbox layout */
+	align-items: center; /* Center items vertically */
+	justify-content: center; /* Center items horizontally */
+}
+.centered-img {
+	max-width: 100%; /* Scale down large images */
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+.squared-img {
+	max-width: 100%; /* Scale down large images */
+	width: 50px;
+	height: 50px;
+}
+.squared-bg-img {
+	max-width: 100%; /* Scale down large images */
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+}
+/* Style for the search box container */
+#findTicker {
+	width: 400px;
+	height: 400px;
+	margin: 1rem;
+	padding: 0.5rem;
+	background-color: black;
+	color: antiquewhite;
+}
+
+/* Style for the p field */
+#findTicker p {
+	padding: 0.5rem;
+	margin-left: 1rem;
+}
+/* Style for the input field */
+input[type='text'] {
+	min-width: 300px;
+	padding: 1px;
+	margin: 0.5em;
+}
+.autocomplete {
+	/* position: relative; */
+	width: 400px;
+	/* display: inline-block; */
+}
+/* Style for the auto-complete dropdown */
+.autocomplete-dropdown {
+	display: list-item;
+	position: relative;
+	background-color: #f1f1f1;
+	max-height: 200px;
+	overflow-y: auto;
+	border: 1px solid #7f0a0a;
+	margin: 0.5em;
+}
+
+/* Style for each auto-complete item */
+.autocomplete-item {
+	color: black;
+	padding: 5px;
+	cursor: pointer;
+}
+/* Style for each auto-complete p */
+.autocomplete-dropdown p {
+	background-color: aquamarine;
+	color: black;
+}
+
+.scrollingContainer {
+	white-space: nowrap;
+	overflow: hidden;
+	position: relative;
+	background-color: rgb(3, 32, 32);
+	/*width: 300px; /* Set the width of the scrolling container */
+	/*height: 50px; /* Set the height of the scrolling container */
+}
+
+.scrollingText {
+	white-space: nowrap;
+	animation: scrollText 10s linear infinite; /* Adjust duration as needed */
+	color: #d1cbee;
+	font-family: 'Open Sans:300,300i,400,400i,600,600i,700,700i', serif;
+	font-size: 36px;
+	font-weight: bold;
+	width: 100%; /* Ensure the entire sentence fits within the container */
+}
+
+@keyframes scrollText {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+/* to add text reflection mirror effect */
+/* Sticky footer style */
+footer {
+	position: sticky;
+	bottom: 0;
+	background-color: rgb(3, 32, 32);
+	color: aliceblue;
+}
+
+main {
+	flex: 1;
+}
+#ActiveTradedUSTickers {
+	margin: 1rem;
+	justify-content: center;
+}
+#topGainerTickers,
+#toplosersTickers,
+#mostActivelyTraded {
+	/* display: flexbox; */
+	color: aliceblue;
+	background-color: black;
+	margin: 1rem;
+	max-height: 400px;
+}
+#topGainerTickers table,
+#toplosersTickers table,
+#mostActivelyTraded table {
+	color: antiquewhite;
+}
+.table-container {
+	max-height: 300px; /* Adjust the desired maximum height */
+
+	overflow-y: auto;
+}
+.td_volume {
+	color: skyblue;
+}
+
+.td_price {
+	color: aliceblue;
+}
+
+#mostActivelyTraded .td_changeAmount {
+	color: rgb(75, 159, 157);
+}
+#topGainerTickers .td_changeAmount {
+	color: rgb(75, 159, 92);
+}
+#toplosersTickers .td_changeAmount {
+	color: mediumvioletred;
+}
+#activeTradedTickerComponent {
+	display: flex;
+	text-align: center;
+	text-decoration: underline;
+}
+/* #feeds col {
+	flex: 1;
+} */
+
+.underline-link,
+.searchable {
+	text-decoration: none; /* Remove the default underline */
+	color: inherit; /* Inherit the text color from the parent element */
+
+	/* Hover styles */
+	&:hover {
+		text-decoration: underline;
+	}
+
+	/* Active styles (when clicked) */
+	&:active {
+		color: red; /* You can change the color on click if desired */
+	}
+	cursor: pointer;
+}
+
+.card-text {
+	padding: 5rem;
+}
+.card-text p {
+	color: black;
+}
+
+#NewsFeedSectionContainer {
+	display: flexbox;
+	margin: 1rem;
+	padding: 1rem;
+	/* max-width: 1080px !important; */
+
+	background-color: white-space;
+	border-color: black;
+}
+#NewsFeedSectionContainer li {
+	margin-top: 2rem;
+}
+#NewsFeedSectionContainer img {
+	max-block-size: 400px;
+}
+.display-6 {
+	font-size: 2rem;
+}
+.list-group-item {
+	border-bottom: 1px solid rgb(211, 21, 37);
+}
+.col {
+	justify-content: center;
+
+	background-color: white;
+}
+.sentiBlock {
+	display: flex;
+
+	text-wrap: pretty;
 }
