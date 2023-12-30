@@ -46,7 +46,8 @@ const MarketNews = () => {
 	// Create the URL with the token parameter
 	// Replace with your actual API key
 	const stocksDataTestURL = './storage.json';
-	let toadyNewsURL = `${dataSrc.baseUrl}${dataSrc.endpoint}?category=${dataSrc.category}&token=${dataSrc.apikey}`;
+	let toadyNewsURL = `https://finnhub.io/api/v1/news/?category=general&token=cks15g1r01qstsqsmda0cks15g1r01qstsqsmdag`;
+	// `${ dataSrc.baseUrl }${ dataSrc.endpoint }?category=${ dataSrc.category }&token=${ dataSrc.apikey }`;
 
 	// collect data from API function
 	const collectData = async () => {
