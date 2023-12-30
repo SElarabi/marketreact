@@ -52,7 +52,7 @@ const MarketNews = () => {
 	const collectData = async () => {
 		// const data = await getData(stocksDataTestURL);
 		const data = await getData(toadyNewsURL);
-		//console.log('collectedData :', data);
+		console.log('collectedData :', data);
 		setTopNews(data);
 	};
 	//  fetch for new data every 60min
