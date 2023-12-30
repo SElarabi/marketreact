@@ -50,8 +50,8 @@ const MarketNews = () => {
 
 	// collect data from API function
 	const collectData = async () => {
-		const data = await getData(stocksDataTestURL);
-		// const data = await getData(toadyNewsURL);
+		// const data = await getData(stocksDataTestURL);
+		const data = await getData(toadyNewsURL);
 		//console.log('collectedData :', data);
 		setTopNews(data);
 	};
