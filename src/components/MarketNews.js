@@ -7,9 +7,9 @@ import isToday from 'date-fns/isToday/index';
 
 const MarketNews = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
-	const [currentText, setCurrentText] = useState('');
-	const [news, setNews] = useState([]);
-	const [businessNews, setBusinessNews] = useState([]);
+
+	const [isScrolling, setIsScrolling] = useState(false);
+
 	const [topNews, setTopNews] = useState([
 		{
 			category: 'top news',
@@ -71,40 +71,45 @@ const MarketNews = () => {
 
 	// scrolling function
 	const ScrollingText = (anyNews) => {
-		setCurrentIndex((prevIndex) => (prevIndex + 1) % anyNews.length);
+		if (!isScrolling) {
+			setCurrentIndex((prevIndex) => (prevIndex + 1) % anyNews.length);
+		}
 	};
-	//updates scrolling text span.
+	//updates scrolling text span .
 	useEffect(() => {
-		// console.log('Text scrolling render');
-		const interval = setInterval(() => {
-			ScrollingText(topNews);
-		}, 20000); // Change the duration to control scrolling speed
+		ScrollingText(topNews);
 
+		const interval = setInterval(() => {
+			setIsScrolling(!isScrolling);
+		}, 10000);
+		// Change the duration to control when text changes
 		return () => {
 			clearInterval(interval);
 		};
-	}, [topNews, currentIndex]);
+	}, [isScrolling]);
 
 	return (
 		<>
+			<span style={{ textTransform: 'uppercase', color: 'red' }}>{isToday} </span>
+			<span style={{ textTransform: 'uppercase', color: '#0ab3c2' }}>
+				{topNews[currentIndex].category} TODAY{': '}
+			</span>
 			<div
 				id='scrollingText'
 				className='scrollingText'
 			>
-				{/* <span style={{ textTransform: 'uppercase', color: 'red' }}>
-					{currentText}
-				</span> */}
-				<span style={{ textTransform: 'uppercase', color: 'red' }}>{isToday} </span>
-				<span style={{ textTransform: 'uppercase', color: '#0ab3c2' }}>
-					{topNews[currentIndex].category} 'TODAY{': '}
-				</span>
 				<span style={{ textTransform: 'uppercase', color: 'red' }}>
 					{topNews[currentIndex].source}
 				</span>
-				: {topNews[currentIndex].headline}
-				{/* <span style={{ textTransform: 'uppercase', color: '#0ab3c2' }}>
-					{topNews[currentIndex].summary}
+				:
+				{/* <span style={{ textTransform: 'uppercase', color: 'red' }}>
+					{currentText}
 				</span> */}
+				{topNews[currentIndex].headline} :
+				<span style={{ textTransform: 'uppercase', color: '#0ab3c2' }}>
+					...
+					{topNews[currentIndex].summary}
+				</span>
 			</div>
 			;
 		</>
@@ -112,26 +117,3 @@ const MarketNews = () => {
 };
 
 export default MarketNews;
-// const updateNews = () => {
-// 	async function getNews() {
-// 		const data = await getData(apiUrl);
-// 		setNews(data);
-// 		console.log('news ', news);
-// 		const newBusinessNews = news.filter((item) => item.category === 'business');
-// 		setBusinessNews(newBusinessNews);
-// 		// console.log('newBusinessNews ', newBusinessNews);
-// 		const newTopNews = news.filter((item) => item.category === 'top news');
-// 		setTopNews(newTopNews);
-// 		// console.log('newTopNews ', newTopNews);
-// 		const newMarketNews = news.filter((item) => item.source === 'MarketWatch');
-// 		setMarketNews(newMarketNews);
-// 		// console.log('newMarketNews ', newMarketNews);
-// 	}
-// 	getNews();
-// 	const newsTimeout = setTimeout(getNews, 300000);
-// 	// Clean up the timeout when the component unmounts
-// 	return () => clearInterval(newsTimeout);
-// };
-//ScrollingText(topNews);
-
-// `${ isToday }---- ${ topNews[ currentIndex ].category } TODAY ---- ${ anyNews[ currentIndex ].source } -- ${ topNews[ currentIndex ].summary } NEWS TODAY ----`;
