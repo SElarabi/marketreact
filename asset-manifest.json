@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/marketreact/static/css/main.51761233.css",
-    "main.js": "/marketreact/static/js/main.994eb55e.js",
+    "main.js": "/marketreact/static/js/main.2601c7da.js",
     "static/media/MITBannerHomepage.png": "/marketreact/static/media/MITBannerHomepage.2f75f58b50658dd3a720.png",
     "index.html": "/marketreact/index.html",
     "main.51761233.css.map": "/marketreact/static/css/main.51761233.css.map",
-    "main.994eb55e.js.map": "/marketreact/static/js/main.994eb55e.js.map"
+    "main.2601c7da.js.map": "/marketreact/static/js/main.2601c7da.js.map"
   },
   "entrypoints": [
     "static/css/main.51761233.css",
-    "static/js/main.994eb55e.js"
+    "static/js/main.2601c7da.js"
   ]
 }
